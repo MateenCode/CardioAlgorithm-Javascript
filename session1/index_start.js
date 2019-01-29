@@ -17,7 +17,18 @@ function reverseString(str) {
 // Return true if palindrome and false if not
 // ex. isPalindrome('racecar') === 'true', isPalindrome('hello') == false
 
-function isPalindrome(str) {}
+function isPalindrome(str) {
+  const revStr = str
+    .split("")
+    .reverse()
+    .join("");
+
+  if (revStr === str) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 // CHALLENGE 3: REVERSE AN INTEGER
 // Return an integer in reverse
@@ -40,6 +51,6 @@ function maxCharacter(str) {}
 function fizzBuzz() {}
 
 // Call Function
-const output = reverseString("hello");
+const output = isPalindrome("racecar");
 
 console.log(output);
