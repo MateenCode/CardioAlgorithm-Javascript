@@ -7,7 +7,10 @@ USE FUNCTIONAL PROGRAMING CONCEPTS!
 // ex. reverseString('hello') === 'olleh'
 
 function reverseString(str) {
-  return "Let's Start";
+  return str
+    .split("")
+    .reverse()
+    .join("");
 }
 
 // CHALLENGE 2: VALIDATE A PALINDROME
