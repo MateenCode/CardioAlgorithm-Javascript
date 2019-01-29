@@ -60,9 +60,14 @@ function maxCharacter(str) {}
 
 // CHALLENGE 6: FIZZBUZZ
 // Write a program that prints all the numbers from 1 to 100. For multiples of 3, instead of the number, print "Fizz", for multiples of 5 print "Buzz". For numbers which are multiples of both 3 and 5, print "FizzBuzz".
-function fizzBuzz() {}
+function fizzBuzz() {
+  for (let i = 1; i < 101; i++) {
+    let a = i % 3 ? (i % 5 ? i : "Buzz") : i % 5 ? "Fizz" : "FizzBuzz";
+    console.log(a);
+  }
+}
 
 // Call Function
-const output = capitalizeLetters("i love javascript");
+const output = fizzBuzz();
 
 console.log(output);
