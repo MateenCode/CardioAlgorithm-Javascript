@@ -58,25 +58,20 @@ function capitalizeLetters(str) {
 
 function maxCharacter(str) {
   const letterMap = {};
-  let maxNum = 0; // that number its self
-  let maxChar = ""; // number that has the most occurrences
-  // loop through each letter
-  str.split("").forEach(letter => {
+  let maxNum = 0;
+  let maxChar = "";
+
+  str.split("").map(letter => {
     if (letterMap[letter]) {
-      // if character exists add 1 to it
       letterMap[letter]++;
     } else {
-      // if its not found make it 1
       letterMap[letter] = 1;
     }
   });
-  // looping in charMap object to look for the greatest number
-  for (let letter in letterMap) {
-    // if charMap is greater then maxNum
+
+  for (letter in letterMap) {
     if (letterMap[letter] > maxNum) {
-      // set the value of maxNum to the charMap value it self
       maxNum = letterMap[letter];
-      // set the maxChar to that character with the most
       maxChar = letter;
     }
   }
@@ -86,13 +81,20 @@ function maxCharacter(str) {
 // CHALLENGE 6: FIZZBUZZ
 // Write a program that prints all the numbers from 1 to 100. For multiples of 3, instead of the number, print "Fizz", for multiples of 5 print "Buzz". For numbers which are multiples of both 3 and 5, print "FizzBuzz".
 function fizzBuzz() {
-  for (let i = 1; i < 101; i++) {
-    let a = i % 3 ? (i % 5 ? i : "Buzz") : i % 5 ? "Fizz" : "FizzBuzz";
-    console.log(a);
+  for (let i = 1; i <= 100; i++) {
+    if (i % 3 & (i % 5 === 0)) {
+      console.log("FizzBuzz");
+    } else if (i % 3 === 0) {
+      console.log("Fizz");
+    } else if (i % 5 === 0) {
+      console.log("Buzz");
+    } else {
+      console.log(i);
+    }
   }
 }
 
 // Call Function
-const output = maxCharacter("javascript");
+const output = fizzBuzz();
 
 console.log(output);
