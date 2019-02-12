@@ -47,35 +47,40 @@ function reverseInt(int) {
 // ex. capitalizeLetters('i love javascript') === 'I Love Javascript'
 function capitalizeLetters(str) {
   return str
-    .toLowerCase()
-    .split(" ")
-    .map(word => word[0].toUpperCase() + word.substr(1))
-    .join(" ");
+    .toLowerCase() // Make sure sentence is lowercased
+    .split(" ") // split up each word in sentence
+    .map(word => word[0].toUpperCase() + word.substring(1)) // map each word uppercase first letter add rest
+    .join(" "); // rejoin words
 }
 // CHALLENGE 5: MAX CHARACTER
 // Return the character that is most common in a string
 // ex. maxCharacter('javascript') == 'a'
 
 function maxCharacter(str) {
-  const sortedStr = str.split("").sort(); // splits each letter of the word and sorts it in all
-  const maxChar = { char: "", count: 0 }; // object that stores the max char and count
-  const currentChar = { char: "", count: 0 }; // object that store char and the current count
-
-  sortedStr.forEach(char => {
-    if (currentChar.char === char) {
-      // checks current char with looped char
-      currentChar.count++; // increment the count
+  const letterMap = {};
+  let maxNum = 0; // that number its self
+  let maxChar = ""; // number that has the most occurrences
+  // loop through each letter
+  str.split("").forEach(letter => {
+    if (letterMap[letter]) {
+      // if character exists add 1 to it
+      letterMap[letter]++;
     } else {
-      if (maxChar.count < currentChar.count) {
-        // check if the maxChar count is greater then then the currentChar count
-        maxChar.char = currentChar.char; // set the maxchar char to the currentchar char
-        maxChar.count = currentChar.count; // set the maxchar count to current char count
-      }
-      currentChar.char = char;
-      currentChar.count = 0;
+      // if its not found make it 1
+      letterMap[letter] = 1;
     }
   });
-  return maxChar.char; // return the current char
+  // looping in charMap object to look for the greatest number
+  for (let letter in letterMap) {
+    // if charMap is greater then maxNum
+    if (letterMap[letter] > maxNum) {
+      // set the value of maxNum to the charMap value it self
+      maxNum = letterMap[letter];
+      // set the maxChar to that character with the most
+      maxChar = letter;
+    }
+  }
+  return maxChar;
 }
 
 // CHALLENGE 6: FIZZBUZZ
