@@ -7,9 +7,8 @@ USE FUNCTIONAL PROGRAMING CONCEPTS!
 // ex. longestWord('Hi there, my name is Brad') === 'there,'
 
 function longestWord(sen) {
-  // SOLUTION 1 - Return a single longest word
-  // SOLUTION 2 - Return an array and include multiple words if they have the same length
-  // SOLUTION 3 - Only return an array if multiple words, otherwise return a string
+  return sen.split(" ")
+    .map
 }
 
 // CHALLENGE 2: ARRAY CHUNKING

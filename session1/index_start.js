@@ -23,7 +23,7 @@ function isPalindrome(str) {
     .reverse()
     .join("");
 
-  if (revStr === str) {
+  if (str === revStr) {
     return true;
   } else {
     return false;
@@ -52,11 +52,31 @@ function capitalizeLetters(str) {
     .map(word => word[0].toUpperCase() + word.substr(1))
     .join(" ");
 }
-
 // CHALLENGE 5: MAX CHARACTER
 // Return the character that is most common in a string
 // ex. maxCharacter('javascript') == 'a'
-function maxCharacter(str) {}
+
+function maxCharacter(str) {
+  const sortedStr = str.split("").sort(); // splits each letter of the word and sorts it in all
+  const maxChar = { char: "", count: 0 }; // object that stores the max char and count
+  const currentChar = { char: "", count: 0 }; // object that store char and the current count
+
+  sortedStr.forEach(char => {
+    if (currentChar.char === char) {
+      // checks current char with looped char
+      currentChar.count++; // increment the count
+    } else {
+      if (maxChar.count < currentChar.count) {
+        // check if the maxChar count is greater then then the currentChar count
+        maxChar.char = currentChar.char; // set the maxchar char to the currentchar char
+        maxChar.count = currentChar.count; // set the maxchar count to current char count
+      }
+      currentChar.char = char;
+      currentChar.count = 0;
+    }
+  });
+  return maxChar.char; // return the current char
+}
 
 // CHALLENGE 6: FIZZBUZZ
 // Write a program that prints all the numbers from 1 to 100. For multiples of 3, instead of the number, print "Fizz", for multiples of 5 print "Buzz". For numbers which are multiples of both 3 and 5, print "FizzBuzz".
@@ -68,6 +88,6 @@ function fizzBuzz() {
 }
 
 // Call Function
-const output = fizzBuzz();
+const output = maxCharacter("javascript");
 
 console.log(output);
