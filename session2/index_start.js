@@ -1,14 +1,9 @@
-/* 
-USE FUNCTIONAL PROGRAMING CONCEPTS! 
-*/
-
 // CHALLENGE 1: LONGEST WORD
 // Return the longest word of a string
 // ex. longestWord('Hi there, my name is Brad') === 'there,'
 
 function longestWord(sen) {
-  return sen.split(" ")
-    .map
+  return sen.split(" ").map;
 }
 
 // CHALLENGE 2: ARRAY CHUNKING
