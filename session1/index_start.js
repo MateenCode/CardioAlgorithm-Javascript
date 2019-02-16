@@ -43,10 +43,10 @@ function reverseInt(int) {
 // ex. capitalizeLetters('i love javascript') === 'I Love Javascript'
 function capitalizeLetters(str) {
   return str
-    .toLowerCase() // Make sure sentence is lowercased
-    .split(" ") // split up each word in sentence
-    .map(word => word[0].toUpperCase() + word.substring(1)) // map each word uppercase first letter add rest
-    .join(" "); // rejoin words
+    .toLowerCase() // confirm all letters are lower case
+    .split(" ") //split up every word as array object in sentence
+    .map(word => word[0].toUpperCase() + word.substring(1)) // takes first index of each array object and capitalizes it
+    .join(" "); // rejoins sentence
 }
 // CHALLENGE 5: MAX CHARACTER
 // Return the character that is most common in a string
@@ -56,8 +56,8 @@ function maxCharacter(str) {
   const letterMap = {};
   let maxNum = 0;
   let maxChar = "";
-
   str.split("").map(letter => {
+    //splits up letters in string and creates a counter for letterMap
     if (letterMap[letter]) {
       letterMap[letter]++;
     } else {
@@ -66,6 +66,7 @@ function maxCharacter(str) {
   });
 
   for (letter in letterMap) {
+    //looks for character in letterMap with the most reoccuring char
     if (letterMap[letter] > maxNum) {
       maxNum = letterMap[letter];
       maxChar = letter;
@@ -91,6 +92,6 @@ function fizzBuzz() {
 }
 
 // Call Function
-const output = fizzBuzz();
+const output = maxCharacter("javascript");
 
 console.log(output);
