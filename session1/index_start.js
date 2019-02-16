@@ -56,8 +56,8 @@ function maxCharacter(str) {
   const letterMap = {};
   let maxNum = 0;
   let maxChar = "";
-
   str.split("").map(letter => {
+    //splits up letters in string and creates a counter for letterMap
     if (letterMap[letter]) {
       letterMap[letter]++;
     } else {
@@ -66,6 +66,7 @@ function maxCharacter(str) {
   });
 
   for (letter in letterMap) {
+    //looks for character in letterMap with the most reoccuring char
     if (letterMap[letter] > maxNum) {
       maxNum = letterMap[letter];
       maxChar = letter;
@@ -91,6 +92,6 @@ function fizzBuzz() {
 }
 
 // Call Function
-const output = capitalizeLetters("i love javascript");
+const output = maxCharacter("javascript");
 
 console.log(output);
