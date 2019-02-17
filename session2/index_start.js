@@ -3,7 +3,20 @@
 // ex. longestWord('Hi there, my name is Brad') === 'there,'
 
 function longestWord(sen) {
-  return sen.split(" ").map;
+  // Create filtered array
+  const wordArr = sen.toLowerCase().match(/[a-z0-9]+/g);
+  // Sort by length
+  const sorted = wordArr.sort((a, b) => b.length - a.length);
+  // If multiple words, put into array
+  const longestWordArr = sorted.filter(
+    word => word.length === sorted[0].length
+  );
+  // Check if more than one array val
+  if (longestWordArr.length === 1) {
+    return longestWordArr[0];
+  } else {
+    return longestWordArr;
+  }
 }
 
 // CHALLENGE 2: ARRAY CHUNKING
@@ -34,6 +47,6 @@ function isAnagram(str1, str2) {}
 function letterChanges(str) {}
 
 // Call Function
-const output = longestWord("Hello, my name is Brad");
+const output = longestWord("Hello there, my name is Brad");
 
 console.log(output);
