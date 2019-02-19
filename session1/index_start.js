@@ -56,8 +56,9 @@ function maxCharacter(str) {
   const letterMap = {};
   let maxNum = 0;
   let maxChar = "";
+
+  // letter map created
   str.split("").map(letter => {
-    //splits up letters in string and creates a counter for letterMap
     if (letterMap[letter]) {
       letterMap[letter]++;
     } else {
@@ -66,7 +67,7 @@ function maxCharacter(str) {
   });
 
   for (letter in letterMap) {
-    //looks for character in letterMap with the most reoccuring char
+    // if the letter in the letter map is greater then maxNum set the values looking for the greatest number in map then return maxChar set to that letter
     if (letterMap[letter] > maxNum) {
       maxNum = letterMap[letter];
       maxChar = letter;
