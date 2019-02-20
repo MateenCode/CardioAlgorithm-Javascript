@@ -57,8 +57,7 @@ function maxCharacter(str) {
   let maxNum = 0;
   let maxChar = "";
 
-  // letter map created
-  str.split("").map(letter => {
+  str.split("").forEach(letter => {
     if (letterMap[letter]) {
       letterMap[letter]++;
     } else {
@@ -66,8 +65,7 @@ function maxCharacter(str) {
     }
   });
 
-  for (letter in letterMap) {
-    // if the letter in the letter map is greater then maxNum set the values looking for the greatest number in map then return maxChar set to that letter
+  for (let letter in letterMap) {
     if (letterMap[letter] > maxNum) {
       maxNum = letterMap[letter];
       maxChar = letter;
