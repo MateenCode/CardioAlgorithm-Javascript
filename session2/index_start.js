@@ -2,21 +2,11 @@
 // Return the longest word of a string
 // ex. longestWord('Hi there, my name is Brad') === 'there,'
 
+// Create filtered array
+//  const wordArr = sen.toLowerCase().match(/[a-z0-10]+/g);
+
 function longestWord(sen) {
-  // Create filtered array
-  const wordArr = sen.toLowerCase().match(/[a-z0-10]+/g);
-  // Sort by length longest => shortest
-  const sorted = wordArr.sort((a, b) => b.length - a.length);
-  // If multiple words, put into array
-  const longestWordArr = sorted.filter(word => {
-    return word.length === sorted[0].length; // return an array of longest words if there more then one with the same length
-  });
-  // if the length of longest word in equal to array then return string else return array
-  if (longestWordArr.length === 1) {
-    return longestWordArr[0];
-  } else {
-    return longestWordArr;
-  }
+  // an array
 }
 
 // CHALLENGE 2: ARRAY CHUNKING
@@ -83,6 +73,6 @@ formatStr = str => {
 function letterChanges(str) {}
 
 // Call Function
-const output = letterChanges("Dormitory", "dirty room##");
+const output = longestWord("Hi there, my name is Brad");
 
 console.log(output);
