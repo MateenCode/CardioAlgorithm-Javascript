@@ -6,7 +6,19 @@
 //  const wordArr = sen.toLowerCase().match(/[a-z0-10]+/g);
 
 function longestWord(sen) {
-  // an array
+  //  word array makes sen lowercase and removes anything that not number or letter
+  const wordArr = sen.toLowerCase().match(/[a-z0-10]+/g);
+
+  // sort by length longest word first
+  const sorted = wordArr.sort((a, b) => b.length - a.length);
+
+  // filter each word in array to see if there more then one with the same length
+  const longestWordArr = sorted.filter(
+    word => word.length === sorted[0].length
+  );
+
+  //  check if theres more then 1 item in array if only 1 just return the single word else return the entire array
+  return longestWordArr.length === 1 ? longestWordArr[0] : longestWordArr;
 }
 
 // CHALLENGE 2: ARRAY CHUNKING
@@ -73,6 +85,6 @@ formatStr = str => {
 function letterChanges(str) {}
 
 // Call Function
-const output = longestWord("Hi there, my name is Brad");
+const output = longestWord("Hi there, my namee is Brad");
 
 console.log(output);
