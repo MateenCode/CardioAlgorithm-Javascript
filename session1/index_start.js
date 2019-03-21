@@ -12,18 +12,13 @@ function reverseString(str) {
 // CHALLENGE 2: VALIDATE A PALINDROME
 // Return true if palindrome and false if not
 // ex. isPalindrome('racecar') === 'true', isPalindrome('hello') == false
-
 function isPalindrome(str) {
   const revStr = str
     .split("")
     .reverse()
     .join("");
 
-  if (str === revStr) {
-    return true;
-  } else {
-    return false;
-  }
+  return str === revStr ? true : false;
 }
 
 // CHALLENGE 3: REVERSE AN INTEGER
@@ -31,11 +26,12 @@ function isPalindrome(str) {
 // ex. reverseInt(521) === 125
 
 function reverseInt(int) {
-  return int
+  const revStr = int
     .toString()
     .split("")
     .reverse()
     .join("");
+  return parseInt(revStr);
 }
 
 // CHALLENGE 4: CAPITALIZE LETTERS
@@ -43,10 +39,9 @@ function reverseInt(int) {
 // ex. capitalizeLetters('i love javascript') === 'I Love Javascript'
 function capitalizeLetters(str) {
   return str
-    .toLowerCase() // confirm all letters are lower case
-    .split(" ") //split up every word as array object in sentence
-    .map(word => word[0].toUpperCase() + word.substring(1)) // takes first index of each array object and capitalizes it
-    .join(" "); // rejoins sentence
+    .split(" ")
+    .map(word => word[0].toUpperCase() + word.substring(1))
+    .join(" ");
 }
 // CHALLENGE 5: MAX CHARACTER
 // Return the character that is most common in a string
@@ -58,11 +53,7 @@ function maxCharacter(str) {
   let maxChar = "";
 
   str.split("").forEach(letter => {
-    if (letterMap[letter]) {
-      letterMap[letter]++;
-    } else {
-      letterMap[letter] = 1;
-    }
+    return letterMap[letter] ? letterMap[letter]++ : (letterMap[letter] = 1);
   });
 
   for (let letter in letterMap) {
