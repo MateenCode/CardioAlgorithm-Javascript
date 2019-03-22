@@ -1,15 +1,12 @@
 // CHALLENGE 1: LONGEST WORD
-// Return the longest word of a string
+// Return the longest word or words of a string
 // ex. longestWord('Hi there, my name is Brad') === 'there,'
 
-// Create filtered array
-//  const wordArr = sen.toLowerCase().match(/[a-z0-10]+/g);
-
 function longestWord(sen) {
-  //  word array makes sen lowercase and removes anything that not number or letter
-  const wordArr = sen.toLowerCase().match(/[a-z0-10]+/g);
+  // makes sure sen lowercase and removes anything that not number or letter
+  const wordArr = sen.toLowerCase().match(/[a-z0-9]+/g);
 
-  // sort by length longest word first
+  // sort that wordArr by length and have the longest word first
   const sorted = wordArr.sort((a, b) => b.length - a.length);
 
   // filter each word in array to see if there more then one with the same length
@@ -17,7 +14,7 @@ function longestWord(sen) {
     word => word.length === sorted[0].length
   );
 
-  //  check if theres more then 1 item in array if only 1 just return the single word else return the entire array
+  // check if theres more then 1 item in array if only 1 just return the single word else return the entire array
   return longestWordArr.length === 1 ? longestWordArr[0] : longestWordArr;
 }
 
@@ -27,20 +24,16 @@ function longestWord(sen) {
 // ex. chunkArray([1, 2, 3, 4, 5, 6, 7], 2) === [[1, 2],[3, 4],[5, 6],[7]]
 
 function chunkArray(arr, len) {
-  // Init chunked arr
+  // Init empty chunkedArr
   const chunkedArr = [];
 
-  // looping through each key in the array
   arr.forEach(eachVal => {
-    // getting the last value of chunked Arr
+    // Get last element
     const last = chunkedArr[chunkedArr.length - 1];
 
-    // check if there is a last length or check if last length is equal to len passed in
     if (!last || last.length === len) {
-      // if true push the eachVal to the chunked array
       chunkedArr.push([eachVal]);
     } else {
-      // if not take last and push that to the eachVal
       last.push(eachVal);
     }
   });
@@ -53,7 +46,7 @@ function chunkArray(arr, len) {
 
 function flattenArray(arrays) {
   // acc is the looped value, curr is the current value which is being concatenated
-  return arrays.reduce((acc, curr) => curr.concat(acc));
+  return arrays.reduce((acc, curr) => acc.concat(curr));
 }
 
 // CHALLENGE 4: ANAGRAM
@@ -73,7 +66,7 @@ formatStr = str => {
     .replace(/[^\w]/g, "") // replace anything that doesnt match a word character with a empty string
     .toLowerCase() // make sure input string is lowercase
     .split("") // split up each letter
-    .sort() // sort he strings
+    .sort() // sort the strings
     .join(""); // join back the letters
 };
 
@@ -82,9 +75,21 @@ formatStr = str => {
 // Z should turn to A
 // ex. 'hello there' === 'Ifmmp UIfsf'
 
-function letterChanges(str) {}
+function letterChanges(str) {
+  let newStr = str.toLowerCase().replace(/[a-z]/gi, char => {
+    if (char === "z" || char === "Z") {
+      return "a";
+    } else {
+      return String.fromCharCode(char.charCodeAt() + 1);
+    }
+  });
+
+  newStr = newStr.replace(/a|e|i|o|u/gi, vowel => vowel.toUpperCase());
+
+  return newStr;
+}
 
 // Call Function
-const output = longestWord("Hi there, my namee is Brad");
+const output = flattenArray([[1, 2], [3, 4], [5, 6], [7]]);
 
 console.log(output);
