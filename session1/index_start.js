@@ -82,6 +82,6 @@ function fizzBuzz() {
 }
 
 // Call Function
-const output = fizzBuzz();
+const output = reverseString();
 
 console.log(output);
