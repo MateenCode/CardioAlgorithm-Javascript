@@ -1,21 +1,13 @@
 // CHALLENGE 1: LONGEST WORD
 // Return the longest word or words of a string
-// ex. longestWord('Hi there, my name is Brad') === 'there,'
+// ex. longestWord('Hi there, my name is Mateen') === 'there,'
 
 function longestWord(sen) {
-  // makes sure sen lowercase and removes anything that not number or letter
   const wordArr = sen.toLowerCase().match(/[a-z0-9]+/g);
-
-  // sort that wordArr by length and have the longest word first
   const sorted = wordArr.sort((a, b) => b.length - a.length);
+  const longestWord = sorted.filter(word => word.length === sorted[0].length);
 
-  // filter each word in array to see if there more then one with the same length
-  const longestWordArr = sorted.filter(
-    word => word.length === sorted[0].length
-  );
-
-  // check if theres more then 1 item in array if only 1 just return the single word else return the entire array
-  return longestWordArr.length === 1 ? longestWordArr[0] : longestWordArr;
+  return longestWord.length === 1 ? longestWord[0] : longestWord;
 }
 
 // CHALLENGE 2: ARRAY CHUNKING
@@ -27,15 +19,9 @@ function chunkArray(arr, len) {
   // Init empty chunkedArr
   const chunkedArr = [];
 
-  arr.forEach(eachVal => {
-    // Get last element
+  arr.forEach(each => {
     const last = chunkedArr[chunkedArr.length - 1];
-
-    if (!last || last.length === len) {
-      chunkedArr.push([eachVal]);
-    } else {
-      last.push(eachVal);
-    }
+    !last || last.length === len ? chunkedArr.push([each]) : last.push(each);
   });
   return chunkedArr;
 }
@@ -90,6 +76,6 @@ function letterChanges(str) {
 }
 
 // Call Function
-const output = flattenArray([[1, 2], [3, 4], [5, 6], [7]]);
+const output = chunkArray([1, 2, 3, 4, 5, 6, 7], 2);
 
 console.log(output);
