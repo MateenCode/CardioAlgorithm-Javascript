@@ -1,7 +1,6 @@
 // CHALLENGE 1: REVERSE A STRING
 // Return a string in reverse
 // ex. reverseString('hello') === 'olleh'
-
 function reverseString(str) {
   return str
     .split("")
@@ -17,21 +16,19 @@ function isPalindrome(str) {
     .split("")
     .reverse()
     .join("");
-
   return str === revStr ? true : false;
 }
 
 // CHALLENGE 3: REVERSE AN INTEGER
 // Return an integer in reverse
 // ex. reverseInt(521) === 125
-
 function reverseInt(int) {
-  const revStr = int
+  const rev = int
     .toString()
     .split("")
     .reverse()
     .join("");
-  return parseInt(revStr);
+  return parseInt(rev);
 }
 
 // CHALLENGE 4: CAPITALIZE LETTERS
@@ -39,14 +36,15 @@ function reverseInt(int) {
 // ex. capitalizeLetters('i love javascript') === 'I Love Javascript'
 function capitalizeLetters(str) {
   return str
+    .toLowerCase()
     .split(" ")
     .map(word => word[0].toUpperCase() + word.substring(1))
     .join(" ");
 }
+
 // CHALLENGE 5: MAX CHARACTER
 // Return the character that is most common in a string
 // ex. maxCharacter('javascript') == 'a'
-
 function maxCharacter(str) {
   const letterMap = {};
   let maxNum = 0;
@@ -56,7 +54,7 @@ function maxCharacter(str) {
     return letterMap[letter] ? letterMap[letter]++ : (letterMap[letter] = 1);
   });
 
-  for (let letter in letterMap) {
+  for (letter in letterMap) {
     if (letterMap[letter] > maxNum) {
       maxNum = letterMap[letter];
       maxChar = letter;
@@ -82,6 +80,6 @@ function fizzBuzz() {
 }
 
 // Call Function
-const output = reverseString();
+const output = fizzBuzz();
 
 console.log(output);
