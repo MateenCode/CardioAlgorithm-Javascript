@@ -80,6 +80,6 @@ function fizzBuzz() {
 }
 
 // Call Function
-const output = fizzBuzz();
+const output = maxCharacter("javascript");
 
 console.log(output);
