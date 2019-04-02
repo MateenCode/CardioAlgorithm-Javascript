@@ -11,7 +11,25 @@ function addAll(...numbers) {
 // Pass in a number to loop up to and add all of the prime numbers. A prime number is a whole number greater than 1 whose only factors are 1 and itself
 // ex. sumAllPrimes(10) == 17
 
-function sumAllPrimes() {}
+function sumAllPrimes(num) {
+  let total = 0;
+
+  for (let i = 2; i <= num; i++) {
+    checkforPrime = i => {
+      for (let j = 2; j < i; j++) {
+        if (i % j === 0) {
+          return false;
+        }
+      }
+      return true;
+    };
+
+    if (checkforPrime(i)) {
+      total += i;
+    }
+  }
+  return total;
+}
 
 // CHALLENGE 3: SEEK & DESTROY
 // Remove from the array whatever is in the following arguments. Return the leftover numbers in an array
@@ -61,14 +79,11 @@ function findNumber(arr, k) {
 function oddNumbers(l, r) {
   let arr = [];
   for (l; l <= r; l++) {
-    if (l % 2 === 0) {
-    } else {
-      arr.push(l);
-    }
+    arr.push(l);
   }
-  return arr;
+  return arr.filter(n => n % 2);
 }
 
-const output = oddNumbers(3, 9);
+const output = sumAllPrimes(10);
 
 console.log(output);
