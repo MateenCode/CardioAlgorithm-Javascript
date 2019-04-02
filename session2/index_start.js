@@ -31,7 +31,7 @@ function chunkArray(arr, len) {
 // Take an array of arrays and flatten to a single array
 // ex. [[1, 2], [3, 4], [5, 6], [7]] = [1, 2, 3, 4, 5, 6, 7]
 function flattenArray(arrays) {
-  return arrays.reduce((acc, curr) => acc.concat(curr));
+  return arrays.reduce((acc, curr) => [...acc, ...curr]);
 }
 
 // CHALLENGE 4: ANAGRAM
@@ -75,6 +75,6 @@ function letterChanges(str) {
 }
 
 // Call Function
-const output = longestWord("Hi there, my name is Mateen");
+const output = flattenArray([[1, 2], [3, 4], [5, 6], [7]]);
 
 console.log(output);
