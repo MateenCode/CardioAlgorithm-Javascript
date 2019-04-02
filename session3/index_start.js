@@ -43,6 +43,32 @@ function missingLetters() {}
 
 function evenOddSums() {}
 
-const output = addAll(2, 5, 6, 7);
+// CHALLENGE 7: Find Number
+// Find if the element is present in the array or not.
+// ex.
+// findNumber([1,2,3,4,5], 1) === YES
+// findNumber([1,2,3,4,5], 7) === NO
+function findNumber(arr, k) {
+  return arr.some(word => word === k) ? console.log("YES") : console.log("NO");
+}
+
+// CHALLENGE 8: Odd Numbers
+// find the odd numbers between the 2 given ranges of input field
+// ex.
+// oddNumbers(2,5) === [3 5]
+// oddNumbers(3,9) === [3,5,7,9]
+
+function oddNumbers(l, r) {
+  let arr = [];
+  for (l; l <= r; l++) {
+    if (l % 2 === 0) {
+    } else {
+      arr.push(l);
+    }
+  }
+  return arr;
+}
+
+const output = oddNumbers(3, 9);
 
 console.log(output);
