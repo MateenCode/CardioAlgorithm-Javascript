@@ -35,7 +35,9 @@ function sumAllPrimes(num) {
 // Remove from the array whatever is in the following arguments. Return the leftover numbers in an array
 // ex. seekAndDestroy([2, 3, 4, 6, 6, 'hello'], 2, 6) == [3, 4, 'hello']
 
-function seekAndDestroy() {}
+function seekAndDestroy() {
+  let result = [];
+}
 
 // CHALLENGE 4: SORT BY HEIGHT
 // Some people are standing in a row in a park. There are trees between them which cannot be moved. Your task is to rearrange the people by their heights in a non-descending order without moving the trees.
@@ -84,6 +86,6 @@ function oddNumbers(l, r) {
   return arr.filter(n => n % 2);
 }
 
-const output = sumAllPrimes(10);
+const output = seekAndDestroy([2, 3, 4, 6, 6, "hello"], 2, 6);
 
 console.log(output);
