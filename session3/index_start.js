@@ -45,7 +45,11 @@ function seekAndDestroy(arr, ...rest) {
 // a = [-1, 150, 190, 170, -1, -1, 160, 180]
 // sortByHeight(a) == [-1, 150, 160, 170, -1, -1, 180, 190]
 
-function sortByHeight() {}
+function sortByHeight(a) {
+  // filter out and sort all the humans
+  const humans = a.filter(v => v !== -1).sort((a, b) => a - b);
+  return a.map(v => (v !== -1 ? humans.shift() : -1));
+}
 
 // CHALLENGE 5: MISSING LETTERS
 // Find the missing letter in the passed letter range and return it. If all letters are present, return undefined
@@ -63,6 +67,6 @@ function missingLetters() {}
 
 function evenOddSums() {}
 
-const output = sumAllPrimes(10);
+const output = sortByHeight([-1, 150, 190, 170, -1, -1, 160, 180]);
 
 console.log(output);
