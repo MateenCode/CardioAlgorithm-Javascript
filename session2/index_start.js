@@ -64,7 +64,7 @@ formatStr = str => {
 // findNumber([1,2,3,4,5], 1) === YES
 // findNumber([1,2,3,4,5], 7) === NO
 function findNumber(arr, k) {
-  return arr.some(word => word === k) ? console.log("YES") : console.log("NO");
+  return arr.some(word => word === k) ? "YES" : "NO";
 }
 
 // CHALLENGE 6: Odd Numbers
@@ -81,6 +81,6 @@ function oddNumbers(l, r) {
 }
 
 // Call Function
-const output = chunkArray([1, 2, 3, 4, 5, 6, 7], 5);
+const output = findNumber([1, 2, 3, 4, 5], 1);
 
 console.log(output);
