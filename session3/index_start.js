@@ -48,6 +48,7 @@ function seekAndDestroy(arr, ...rest) {
 function sortByHeight(a) {
   // filter out and sort all the humans
   const humans = a.filter(v => v !== -1).sort((a, b) => a - b);
+  // place sorted humans back into array
   return a.map(v => (v !== -1 ? humans.shift() : -1));
 }
 
@@ -65,8 +66,15 @@ function missingLetters() {}
 // ex.
 // evenOddSums([50, 60, 60, 45, 71]) == [170, 116]
 
-function evenOddSums() {}
+function evenOddSums(arr) {
+  let evenSum = 0;
+  let oddSum = 0;
 
-const output = sortByHeight([-1, 150, 190, 170, -1, -1, 160, 180]);
+  arr.forEach(each => (each % 2 === 0 ? (evenSum += each) : (oddSum += each)));
+
+  return [evenSum, oddSum];
+}
+
+const output = evenOddSums([50, 60, 60, 45, 71]);
 
 console.log(output);
