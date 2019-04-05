@@ -58,22 +58,26 @@ formatStr = str => {
     .join(""); // join back the letters
 };
 
-// CHALLENGE 5: LETTER CHANGES
-// Change every letter of the string to the one that follows it and capitalize the vowels
-// Z should turn to A
-// ex. 'hello there' === 'Ifmmp UIfsf'
-function letterChanges(str) {
-  let newStr = str.toLowerCase().replace(/[a-z]/gi, char => {
-    if (char === "z" || char === "Z") {
-      return "a";
-    } else {
-      return String.fromCharCode(char.charCodeAt() + 1);
-    }
-  });
+// CHALLENGE 5: Find Number
+// Find if the element is present in the array or not.
+// ex.
+// findNumber([1,2,3,4,5], 1) === YES
+// findNumber([1,2,3,4,5], 7) === NO
+function findNumber(arr, k) {
+  return arr.some(word => word === k) ? console.log("YES") : console.log("NO");
+}
 
-  newStr = newStr.replace(/a|e|i|o|u/gi, vowel => vowel.toUpperCase());
-
-  return newStr;
+// CHALLENGE 6: Odd Numbers
+// find the odd numbers between the 2 given ranges of input field
+// ex.
+// oddNumbers(2,5) === [3 5]
+// oddNumbers(3,9) === [3,5,7,9]
+function oddNumbers(l, r) {
+  let arr = [];
+  for (l; l <= r; l++) {
+    arr.push(l);
+  }
+  return arr.filter(n => n % 2);
 }
 
 // Call Function

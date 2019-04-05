@@ -4,7 +4,7 @@
 
 // '...' the rest operator takes all the numbers being passed and stores it into a array
 function addAll(...numbers) {
-  return numbers.reduce((acc, curr) => acc + curr);
+  return numbers.reduce((a, b) => a + b);
 }
 
 // CHALLENGE 2: SUM ALL PRIMES
@@ -63,29 +63,6 @@ function missingLetters() {}
 
 function evenOddSums() {}
 
-// CHALLENGE 7: Find Number
-// Find if the element is present in the array or not.
-// ex.
-// findNumber([1,2,3,4,5], 1) === YES
-// findNumber([1,2,3,4,5], 7) === NO
-function findNumber(arr, k) {
-  return arr.some(word => word === k) ? console.log("YES") : console.log("NO");
-}
-
-// CHALLENGE 8: Odd Numbers
-// find the odd numbers between the 2 given ranges of input field
-// ex.
-// oddNumbers(2,5) === [3 5]
-// oddNumbers(3,9) === [3,5,7,9]
-
-function oddNumbers(l, r) {
-  let arr = [];
-  for (l; l <= r; l++) {
-    arr.push(l);
-  }
-  return arr.filter(n => n % 2);
-}
-
-const output = seekAndDestroy([2, 3, 4, 6, 6, "hello"], 2, 6);
+const output = sumAllPrimes(10);
 
 console.log(output);
