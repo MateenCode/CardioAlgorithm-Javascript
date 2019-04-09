@@ -7,9 +7,9 @@ function longestWord(sen) {
   // sort by longest first
   const sorted = wordArr.sort((a, b) => b.length - a.length);
   // filter out if there more then one word with same length
-  const longestArr = sorted.filter(word => word.length === sorted.length);
+  const filterArr = sorted.filter(word => word.length === sorted.length);
   // return if single word or array if more then one
-  return longestArr.length === 1 ? longestArr[0] : longestArr;
+  return filterArr.length === 1 ? filterArr[0] : filterArr;
 }
 
 // CHALLENGE 2: ARRAY CHUNKING
@@ -19,7 +19,6 @@ function longestWord(sen) {
 
 function chunkArray(arr, len) {
   const chunkedArr = [];
-
   arr.forEach(each => {
     const last = chunkedArr[chunkedArr.length - 1];
 
@@ -81,6 +80,6 @@ function oddNumbers(l, r) {
 }
 
 // Call Function
-const output = findNumber([1, 2, 3, 4, 5], 1);
+const output = longestWord("Hi there, my nameee is Mateen");
 
 console.log(output);
