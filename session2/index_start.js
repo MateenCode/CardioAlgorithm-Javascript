@@ -16,12 +16,11 @@ function longestWord(sen) {
 // Split an array into chunked arrays of a specific length
 // ex. chunkArray([1, 2, 3, 4, 5, 6, 7], 3) === [[1, 2, 3],[4, 5, 6],[7]]
 // ex. chunkArray([1, 2, 3, 4, 5, 6, 7], 2) === [[1, 2],[3, 4],[5, 6],[7]]
-
 function chunkArray(arr, len) {
   const chunkedArr = [];
+
   arr.forEach(each => {
     const last = chunkedArr[chunkedArr.length - 1];
-
     return !last || last.length === len
       ? chunkedArr.push([each])
       : last.push(each);
@@ -80,6 +79,6 @@ function oddNumbers(l, r) {
 }
 
 // Call Function
-const output = longestWord("Hi there, my nameee is Mateen");
+const output = chunkArray([1, 2, 3, 4, 5, 6, 7], 3);
 
 console.log(output);
