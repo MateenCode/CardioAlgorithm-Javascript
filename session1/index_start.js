@@ -51,7 +51,7 @@ function maxCharacter(str) {
   let maxChar = "";
 
   str.split("").forEach(letter => {
-    return letterMap[letter] ? letterMap[letter]++ : (letterMap[letter] = 1);
+    letterMap[letter] ? letterMap[letter]++ : (letterMap[letter] = 1);
   });
 
   for (letter in letterMap) {
@@ -60,6 +60,7 @@ function maxCharacter(str) {
       maxChar = letter;
     }
   }
+
   return maxChar;
 }
 
@@ -80,6 +81,6 @@ function fizzBuzz() {
 }
 
 // Call Function
-const output = fizzBuzz();
+const output = maxCharacter("javascript");
 
 console.log(output);
