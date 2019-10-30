@@ -1,7 +1,48 @@
 const dateFns = require("date-fns");
-const Subscription = require("./Subscription");
 const formatDate = dd => dateFns.format(dd, "MMM-DD-YYYY");
+/*
+Implement a subscription class that supports following methods:
 
+NPM test in folder to run 
+
+1. setCustomerName(customerName: string)
+2. setInterval(length: number, unit: 'days' | 'weeks' | 'months')
+3. addProduct(productId: number, sku: string, quantity: number)
+4. charge()
+
+Pass the tests
+*/
+
+class Subscription {
+  constructor() {
+    this.customerName = "";
+    this.nextShipDate = formatDate(dateFns.addMonths(new Date(), 1));
+    this.intervalLength = 1;
+    this.intervalUnit = "months";
+    this.products = {};
+  }
+
+  // set the customerName
+  setCustomerName(customerName) {
+    this.customerName = customerName;
+  }
+  setInterval(intervalLength, intervalUnit) {
+    this.intervalLength = intervalLength;
+    this.intervalUnit = intervalUnit;
+  }
+  // addProduct should add the productKey correctly
+  addProduct(products) {
+    this.products = { ...products, productKey };
+  }
+
+  // charge should update nextShipDate
+  charge() {
+    const tmp = this.nextShipDate;
+    this.nextShipDate = formatDate(dateFns.addWeeks(tmp, 2));
+  }
+}
+
+//TEST STARTS
 describe("Subscription", () => {
   it("constructor should pass", () => {
     const sub = new Subscription();
