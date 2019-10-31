@@ -16,6 +16,7 @@ function isPalindrome(str) {
     .split("")
     .reverse()
     .join("");
+
   return str === revStr ? true : false;
 }
 
@@ -23,12 +24,13 @@ function isPalindrome(str) {
 // Return an integer in reverse
 // ex. reverseInt(521) === 125
 function reverseInt(int) {
-  const rev = int
+  const num = int
     .toString()
     .split("")
     .reverse()
     .join("");
-  return parseInt(rev);
+
+  return parseInt(num);
 }
 
 // CHALLENGE 4: CAPITALIZE LETTERS
@@ -60,7 +62,6 @@ function maxCharacter(str) {
       maxChar = letter;
     }
   }
-
   return maxChar;
 }
 
@@ -81,6 +82,6 @@ function fizzBuzz() {
 }
 
 // Call Function
-const output = maxCharacter("javascript");
+const output = fizzBuzz();
 
 console.log(output);
