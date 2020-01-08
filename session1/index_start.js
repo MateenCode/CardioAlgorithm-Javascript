@@ -5,32 +5,30 @@ function reverseString(str) {
   return str
     .split("")
     .reverse()
-    .join("");
+    .join();
 }
 
 // CHALLENGE 2: VALIDATE A PALINDROME
 // Return true if palindrome and false if not
 // ex. isPalindrome('racecar') === 'true', isPalindrome('hello') == false
 function isPalindrome(str) {
-  const revStr = str
+  let rev = str
     .split("")
     .reverse()
     .join("");
 
-  return str === revStr ? true : false;
+  return rev === str ? true : false;
 }
 
 // CHALLENGE 3: REVERSE AN INTEGER
 // Return an integer in reverse
 // ex. reverseInt(521) === 125
 function reverseInt(int) {
-  const num = int
+  return int
     .toString()
     .split("")
     .reverse()
     .join("");
-
-  return parseInt(num);
 }
 
 // CHALLENGE 4: CAPITALIZE LETTERS
@@ -38,7 +36,6 @@ function reverseInt(int) {
 // ex. capitalizeLetters('i love javascript') === 'I Love Javascript'
 function capitalizeLetters(str) {
   return str
-    .toLowerCase()
     .split(" ")
     .map(word => word[0].toUpperCase() + word.substring(1))
     .join(" ");
@@ -48,21 +45,14 @@ function capitalizeLetters(str) {
 // Return the character that is most common in a string
 // ex. maxCharacter('javascript') == 'a'
 function maxCharacter(str) {
-  const letterMap = {};
-  let maxNum = 0;
-  let maxChar = "";
+  let arr = str.split("");
+  let count = {};
 
-  str.split("").forEach(letter => {
-    letterMap[letter] ? letterMap[letter]++ : (letterMap[letter] = 1);
-  });
-
-  for (letter in letterMap) {
-    if (letterMap[letter] > maxNum) {
-      maxNum = letterMap[letter];
-      maxChar = letter;
-    }
+  for (let val of arr) {
+    count[val] ? count[val]++ : (count[val] = 1);
   }
-  return maxChar;
+
+  return Object.keys(count).reduce((a, b) => (count[a] > count[b] ? a : b));
 }
 
 // CHALLENGE 6: FIZZBUZZ
@@ -70,11 +60,11 @@ function maxCharacter(str) {
 function fizzBuzz() {
   for (let i = 1; i <= 100; i++) {
     if (i % 15 === 0) {
-      console.log("FizzBuzz");
+      console.log("FizzBuz");
     } else if (i % 3 === 0) {
-      console.log("Fizz");
-    } else if (i % 5 === 0) {
       console.log("Buzz");
+    } else if (i % 5 === 0) {
+      console.log("Fizz");
     } else {
       console.log(i);
     }
@@ -82,6 +72,6 @@ function fizzBuzz() {
 }
 
 // Call Function
-const output = maxCharacter("javascript");
+const output = fizzBuzz();
 
 console.log(output);
