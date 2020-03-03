@@ -3,7 +3,9 @@
 // ex. addAll(2,5,6,7) === 20
 
 // '...' the rest operator takes all the numbers being passed and stores it into a array
-function addAll(...numbers) {}
+function addAll(...numbers) {
+  return numbers.reduce((a, b) => a + b);
+}
 
 // CHALLENGE 2: SUM ALL PRIMES
 // Pass in a number to loop up to and add all of the prime numbers. A prime number is a whole number greater than 1 whose only factors are 1 and itself
@@ -41,6 +43,6 @@ function missingLetters(str) {}
 
 function evenOddSums(arr) {}
 
-const output = missingLetters("abcdefghjklmno");
+const output = addAll(2, 5, 6, 7);
 
 console.log(output);

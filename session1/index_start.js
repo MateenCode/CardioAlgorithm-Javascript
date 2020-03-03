@@ -5,30 +5,32 @@ function reverseString(str) {
   return str
     .split("")
     .reverse()
-    .join();
+    .join("");
 }
 
 // CHALLENGE 2: VALIDATE A PALINDROME
 // Return true if palindrome and false if not
 // ex. isPalindrome('racecar') === 'true', isPalindrome('hello') == false
 function isPalindrome(str) {
-  let rev = str
+  const revStr = str
     .split("")
     .reverse()
     .join("");
 
-  return rev === str ? true : false;
+  return revStr === str;
 }
 
 // CHALLENGE 3: REVERSE AN INTEGER
 // Return an integer in reverse
 // ex. reverseInt(521) === 125
 function reverseInt(int) {
-  return int
+  let num = int
     .toString()
     .split("")
     .reverse()
     .join("");
+
+  return parseInt(num);
 }
 
 // CHALLENGE 4: CAPITALIZE LETTERS
@@ -37,7 +39,7 @@ function reverseInt(int) {
 function capitalizeLetters(str) {
   return str
     .split(" ")
-    .map(word => word[0].toUpperCase() + word.substring(1))
+    .map(each => each[0].toUpperCase() + each.substring(1))
     .join(" ");
 }
 
@@ -45,8 +47,8 @@ function capitalizeLetters(str) {
 // Return the character that is most common in a string
 // ex. maxCharacter('javascript') == 'a'
 function maxCharacter(str) {
-  let arr = str.split("");
   let count = {};
+  let arr = str.split("");
 
   for (let val of arr) {
     count[val] ? count[val]++ : (count[val] = 1);
@@ -57,21 +59,9 @@ function maxCharacter(str) {
 
 // CHALLENGE 6: FIZZBUZZ
 // Write a program that prints all the numbers from 1 to 100. For multiples of 3, instead of the number, print "Fizz", for multiples of 5 print "Buzz". For numbers which are multiples of both 3 and 5, print "FizzBuzz".
-function fizzBuzz() {
-  for (let i = 1; i <= 100; i++) {
-    if (i % 15 === 0) {
-      console.log("FizzBuz");
-    } else if (i % 3 === 0) {
-      console.log("Buzz");
-    } else if (i % 5 === 0) {
-      console.log("Fizz");
-    } else {
-      console.log(i);
-    }
-  }
-}
+function fizzBuzz() {}
 
 // Call Function
-const output = fizzBuzz();
+const output = maxCharacter("javascript");
 
 console.log(output);
