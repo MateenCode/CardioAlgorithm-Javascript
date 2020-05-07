@@ -35,7 +35,12 @@ function capitalizeLetters(str) {
 // Return the character that is most common in a string
 // ex. maxCharacter('javascript') == 'a'
 function maxCharacter(str) {
-  // return Object.keys(count).reduce((a, b) => (count[a] > count[b] ? a : b));
+  let arr = str.split("");
+  let count = {};
+  for (let val of arr) {
+    count[val] ? count[val]++ : (count[val] = 1);
+  }
+  return Object.keys(count).reduce((a, b) => (count[a] > count[b] ? a : b));
 }
 
 // CHALLENGE 6: FIZZBUZZ
@@ -54,6 +59,6 @@ function fizzBuzz() {
   }
 }
 // Call Function
-const output = capitalizeLetters("i love javascript");
+const output = maxCharacter("javascript");
 
 console.log(output);
