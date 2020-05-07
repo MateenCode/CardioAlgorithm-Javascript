@@ -2,59 +2,32 @@
 // Return a string in reverse
 // ex. reverseString('hello') === 'olleh'
 function reverseString(str) {
-  return str
-    .split("")
-    .reverse()
-    .join("");
+  return str.split("").reverse("").join("");
 }
 
 // CHALLENGE 2: VALIDATE A PALINDROME
 // Return true if palindrome and false if not
 // ex. isPalindrome('racecar') === 'true', isPalindrome('hello') == false
 function isPalindrome(str) {
-  const revStr = str
-    .split("")
-    .reverse()
-    .join("");
-
+  const revStr = str.split("").reverse().join("");
   return revStr === str;
 }
 
 // CHALLENGE 3: REVERSE AN INTEGER
 // Return an integer in reverse
 // ex. reverseInt(521) === 125
-function reverseInt(int) {
-  let num = int
-    .toString()
-    .split("")
-    .reverse()
-    .join("");
-
-  return parseInt(num);
-}
+function reverseInt(int) {}
 
 // CHALLENGE 4: CAPITALIZE LETTERS
 // Return a string with the first letter of every word capitalized
 // ex. capitalizeLetters('i love javascript') === 'I Love Javascript'
-function capitalizeLetters(str) {
-  return str
-    .split(" ")
-    .map(each => each[0].toUpperCase() + each.substring(1))
-    .join(" ");
-}
+function capitalizeLetters(str) {}
 
 // CHALLENGE 5: MAX CHARACTER
 // Return the character that is most common in a string
 // ex. maxCharacter('javascript') == 'a'
 function maxCharacter(str) {
-  let count = {};
-  let arr = str.split("");
-
-  for (let val of arr) {
-    count[val] ? count[val]++ : (count[val] = 1);
-  }
-
-  return Object.keys(count).reduce((a, b) => (count[a] > count[b] ? a : b));
+  // return Object.keys(count).reduce((a, b) => (count[a] > count[b] ? a : b));
 }
 
 // CHALLENGE 6: FIZZBUZZ
@@ -73,6 +46,6 @@ function fizzBuzz() {
   }
 }
 // Call Function
-const output = maxCharacter("javascript");
+const output = isPalindrome("racecard");
 
 console.log(output);
