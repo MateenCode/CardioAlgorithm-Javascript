@@ -41,8 +41,20 @@ function missingLetters(str) {}
 // ex.
 // evenOddSums([50, 60, 60, 45, 71]) == [170, 116]
 
-function evenOddSums(arr) {}
+function evenOddSums(arr) {
+  let even = [];
+  let odd = [];
 
-const output = addAll(2, 5, 6, 7);
+  for (let val of arr) {
+    val % 2 === 0 ? even.push(val) : odd.push(val);
+  }
+
+  let newArrEven = even.reduce((a, b) => a + b);
+  let newArrOdd = odd.reduce((a, b) => a + b);
+
+  return [newArrEven, newArrOdd];
+}
+
+const output = evenOddSums([50, 60, 60, 45, 71]);
 
 console.log(output);
