@@ -11,7 +11,25 @@ function addAll(...numbers) {
 // Pass in a number to loop up to and add all of the prime numbers. A prime number is a whole number greater than 1 whose only factors are 1 and itself
 // ex. sumAllPrimes(10) == 17
 
-function sumAllPrimes(num) {}
+function sumAllPrimes(num) {
+  let total = 0;
+
+  const checkIfPrime = (num) => {
+    for (let j = 2; j < num; j++) {
+      if (num % j === 0) {
+        return false;
+      }
+    }
+    return true;
+  };
+
+  for (let i = 2; i <= num; i++) {
+    if (checkIfPrime(i)) {
+      total += i;
+    }
+  }
+  return total;
+}
 
 // CHALLENGE 3: SEEK & DESTROY
 // Remove from the array whatever is in the following arguments. Return the leftover numbers in an array
@@ -42,19 +60,16 @@ function missingLetters(str) {}
 // evenOddSums([50, 60, 60, 45, 71]) == [170, 116]
 
 function evenOddSums(arr) {
-  let even = [];
-  let odd = [];
+  let even = 0;
+  let odd = 0;
 
   for (let val of arr) {
-    val % 2 === 0 ? even.push(val) : odd.push(val);
+    val % 2 === 0 ? (even += val) : (odd += val);
   }
 
-  let newArrEven = even.reduce((a, b) => a + b);
-  let newArrOdd = odd.reduce((a, b) => a + b);
-
-  return [newArrEven, newArrOdd];
+  return [even, odd];
 }
 
-const output = evenOddSums([50, 60, 60, 45, 71]);
+const output = sumAllPrimes(10);
 
 console.log(output);
