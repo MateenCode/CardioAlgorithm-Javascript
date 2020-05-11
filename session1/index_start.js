@@ -37,9 +37,11 @@ function capitalizeLetters(str) {
 function maxCharacter(str) {
   let arr = str.split("");
   let count = {};
+
   for (let val of arr) {
     count[val] ? count[val]++ : (count[val] = 1);
   }
+
   return Object.keys(count).reduce((a, b) => (count[a] > count[b] ? a : b));
 }
 

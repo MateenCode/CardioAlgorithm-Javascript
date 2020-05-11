@@ -65,7 +65,20 @@ function sortByHeight(a) {
 // missingLetters("abcdefghjklmno") == "i"
 // missingLetters("abcdefghijklmnopqrstuvwxyz") == undefined
 
-function missingLetters(str) {}
+function missingLetters(str) {
+  let compare = str.charCodeAt(0);
+  let missing;
+
+  str.split("").map((char, i) => {
+    if (str.charCodeAt(i) == compare) {
+      ++compare;
+    } else {
+      missing = String.fromCharCode(compare);
+    }
+  });
+
+  return missing;
+}
 
 // CHALLENGE 6: EVEN & ODD SUMS
 // Take in an array and return an array of the sums of even and odd numbers
